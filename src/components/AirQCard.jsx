@@ -1,59 +1,85 @@
 /** @format */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 
 export default function AirQCard({ data }) {
   const { aqi, city, dominentpol, time } = data;
+  const [textColor, setTextColor] = useState("");
 
   const datetimeString = time.s;
-  const formattedDateTime = moment(datetimeString).format("MMMM-DD h.mm A");
+  const formattedDate = moment(datetimeString).format("h.mm A");
 
   const getCardColor = (aqi) => {
     if (aqi <= 50) {
-      return "success text-white";
+      return "success";
     } else if (aqi <= 100) {
       return "warning";
     } else if (aqi <= 150) {
       return "orange";
     } else if (aqi <= 200) {
-      return "danger text-white";
+      return "danger";
     } else if (aqi <= 300) {
-      return "unhealthy text-white";
+      return "unhealthy";
     } else {
       return "hazardous";
     }
   };
 
+  const cardColor = getCardColor(aqi);
+
+  useEffect(() => {
+    const getColor = (cardColor) => {
+      if (
+        cardColor === "success" ||
+        cardColor === "warning" ||
+        cardColor === "orange"
+      ) {
+        setTextColor("white");
+      } else if (
+        cardColor === "danger" ||
+        cardColor === "unhealthy" ||
+        cardColor === "hazardous"
+      ) {
+        setTextColor("black");
+      } else {
+        setTextColor("");
+      }
+    };
+
+    getColor(cardColor);
+  }, [cardColor]);
+
   return (
     <div
-      className={`card card-side bg-${getCardColor(aqi)} shadow-xl w-fit p-4`}>
-      <figure>
-        <img
-          className='h-96 shadow-xl'
-          src='https://d13k13wj6adfdf.cloudfront.net/urban_areas/san-francisco-bay-area-7f6d130d20.jpg'
-          alt={` image of ${city.name}`}
-        />
-      </figure>
-      <div className='card-body text-black'>
-        <h2 className='card-title font-mono text-5xl'>{city.name}</h2>
-        <div className='py-4 font-sans font-bold text-2xl'>
-          <div className='stats stats-vertical shadow'>
-            <div className='stat'>
-              <div className={`stat-title text-${getCardColor(aqi)}`}>
-                Air Quality
-              </div>
-              <div className='stat-desc'>{formattedDateTime}</div>
-              <div className='stat-value'>{aqi}</div>
-            </div>
+      className={
+        "flex flex-col gap-4 mb-4 items-center w-fit bg-" +
+        cardColor +
+        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-90 p-8"
+      }>
+      <h2 className={`font-mono font-extrabold text-4xl text-${textColor}`}>
+        {city.name}
+      </h2>
+      <div>
+        <div className='stats shadow'>
+          <div className='stat place-items-center'>
+            <div className='stat-title'>Air Quality</div>
+            <div className='stat-value'>{aqi}</div>
+            <div className='stat-desc'></div>
+          </div>
 
-            <div className='stat'>
-              <div className='stat-title'>Main Pollutant</div>
-              <div className='stat-value'>{dominentpol}</div>
-            </div>
+          <div className='stat place-items-center'>
+            <div className='stat-title'>Dominant Pollutant</div>
+            <div className='stat-value'>{dominentpol}</div>
+            <div className='stat-desc'></div>
+          </div>
+
+          <div className='stat place-items-center'>
+            <div className='stat-title'>Updated time</div>
+            <div className='stat-value'>{formattedDate}</div>
+            <div className='stat-desc'>Local time</div>
           </div>
         </div>
-        <div className='card-actions pt-4 justify-end'></div>
       </div>
     </div>
   );
