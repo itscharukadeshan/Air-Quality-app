@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CitySearch from "./components/CitySearch";
 import ErrorBox from "./components/ErrorBox";
+import AirQCard from "./components/AirQCard";
 
 export default function App() {
   const aqiApiToken = import.meta.env.VITE_AQI_API_TOKEN;
@@ -46,7 +47,11 @@ export default function App() {
       <h1 className='text-3xl font-bold '>Air Quality Index Checker</h1>
       <CitySearch getAirQuality={getAirQuality} />
       {error && <ErrorBox error={error} />}
-      {airQualityData && <></>}
+      {airQualityData && (
+        <>
+          <AirQCard data={airQualityData} />
+        </>
+      )}
     </div>
   );
 }
