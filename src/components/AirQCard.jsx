@@ -35,13 +35,13 @@ export default function AirQCard({ data }) {
         cardColor === "warning" ||
         cardColor === "orange"
       ) {
-        setTextColor("white");
+        setTextColor("black");
       } else if (
         cardColor === "danger" ||
         cardColor === "unhealthy" ||
         cardColor === "hazardous"
       ) {
-        setTextColor("black");
+        setTextColor("white");
       } else {
         setTextColor("");
       }
@@ -53,11 +53,12 @@ export default function AirQCard({ data }) {
   return (
     <div
       className={
-        "flex flex-col gap-4 mb-4 items-center w-auto bg-" +
+        "flex flex-col gap-4 mb-4 items-center w-fit bg-" +
         cardColor +
-        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 p-8"
+        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg p-8"
       }>
-      <h2 className={`font-mono font-extrabold text-4xl text-${textColor}`}>
+      <h2
+        className={`font-mono pt-8 font-extrabold text-4xl text-${textColor}`}>
         {city.name}
       </h2>
       <div>

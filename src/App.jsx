@@ -33,13 +33,19 @@ export default function App() {
       <NavBar />
       <CitySearch getAirQuality={handleGetAirQuality} />
       {error && <ErrorBox error={error} />}
+      <div className='flex flex-row items-stretch m-4 gap-6'>
+        {airQualityData && (
+          <>
+            <AirQCard data={airQualityData} />
+          </>
+        )}
+        <AirQTable />
+      </div>
       {airQualityData && (
         <>
-          <AirQCard data={airQualityData} />
           <PollutantInfo pollutant={airQualityData.dominentpol} />
         </>
       )}
-      <AirQTable />
     </div>
   );
 }
