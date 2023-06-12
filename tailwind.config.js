@@ -27,7 +27,7 @@ export default {
 
               warning: "#a3590a",
 
-              error: "#fa2941",
+              error: "rgba(250, 41, 65, 0.5)",
             },
           },
         ],
