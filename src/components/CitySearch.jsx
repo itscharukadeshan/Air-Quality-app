@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-function CitySearch({ getAirQuality }) {
+const CitySearch = ({ getAirQuality }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {
@@ -11,22 +11,22 @@ function CitySearch({ getAirQuality }) {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    const formatCity = inputValue.replace(/ /g, "-");
-    getAirQuality(formatCity);
+    const formattedCity = inputValue.replace(/ /g, "-");
+    getAirQuality(formattedCity);
   };
-
   return (
-    <>
-      <form onSubmit={handleSearch}>
-        <input
-          type='text'
-          placeholder='Enter the city'
-          onChange={handleInputChange}
-        />
-        <button type='submit'>Search</button>
-      </form>
-    </>
+    <form onSubmit={handleSearch} className='mb-4 flex flex-row gap-4 py-6'>
+      <input
+        type='text'
+        placeholder='Enter city...'
+        onChange={handleInputChange}
+        className='input input-bordered input-primary w-full max-w-xs'
+      />
+      <button type='submit' className='btn btn-outline btn-md btn-primary'>
+        Search
+      </button>
+    </form>
   );
-}
+};
 
 export default CitySearch;
