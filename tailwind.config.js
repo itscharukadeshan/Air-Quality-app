@@ -30,6 +30,11 @@ export default {
           warning: "#fa971e",
 
           error: "#f07056",
+          success: "#009966",
+          orange: "#ffde33",
+          danger: "#ff9933",
+          unhealthy: "#660099",
+          hazardous: "#7e0023",
         },
       },
     ],
