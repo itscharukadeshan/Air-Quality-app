@@ -1,41 +1,59 @@
 /** @format */
 
 import React from "react";
+import moment from "moment";
 
 export default function AirQCard({ data }) {
   const { aqi, city, dominentpol, time } = data;
 
+  const datetimeString = time.s;
+  const formattedDateTime = moment(datetimeString).format("MMMM-DD h.mm A");
+
   const getCardColor = (aqi) => {
     if (aqi <= 50) {
-      return "bg-success text-white";
+      return "success text-white";
     } else if (aqi <= 100) {
-      return "bg-warning";
+      return "warning";
     } else if (aqi <= 150) {
-      return "bg-orange";
+      return "orange";
     } else if (aqi <= 200) {
-      return "bg-danger text-white";
+      return "danger text-white";
     } else if (aqi <= 300) {
-      return "bg-unhealthy text-white";
+      return "unhealthy text-white";
     } else {
-      return "bg-hazardous";
+      return "hazardous";
     }
   };
 
   return (
-    <div className={`card card-side ${getCardColor(aqi)} shadow-xl w-3/4 p-4`}>
+    <div
+      className={`card card-side bg-${getCardColor(aqi)} shadow-xl w-fit p-4`}>
       <figure>
-        <img src='#' alt={` image of ${city.name}`} />
+        <img
+          className='h-96 shadow-xl'
+          src='https://d13k13wj6adfdf.cloudfront.net/urban_areas/san-francisco-bay-area-7f6d130d20.jpg'
+          alt={` image of ${city.name}`}
+        />
       </figure>
       <div className='card-body text-black'>
-        <h2 className='card-title'>{city.name}</h2>
-        <div className='py-4'>
-          <p>Air Quality Index {aqi}</p>
-          <p>Dominant pollutant {dominentpol}</p>
-          <p>Time last updated {time.s}</p>
+        <h2 className='card-title font-mono text-5xl'>{city.name}</h2>
+        <div className='py-4 font-sans font-bold text-2xl'>
+          <div className='stats stats-vertical shadow'>
+            <div className='stat'>
+              <div className={`stat-title text-${getCardColor(aqi)}`}>
+                Air Quality
+              </div>
+              <div className='stat-desc'>{formattedDateTime}</div>
+              <div className='stat-value'>{aqi}</div>
+            </div>
+
+            <div className='stat'>
+              <div className='stat-title'>Main Pollutant</div>
+              <div className='stat-value'>{dominentpol}</div>
+            </div>
+          </div>
         </div>
-        <div className='card-actions pt-4 justify-end'>
-          <a href={city.url}>SEE MORE</a>
-        </div>
+        <div className='card-actions pt-4 justify-end'></div>
       </div>
     </div>
   );
