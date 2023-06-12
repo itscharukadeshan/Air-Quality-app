@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CitySearch from "./components/CitySearch";
+import config from "../utils/config";
 import ErrorBox from "./components/ErrorBox";
 import AirQCard from "./components/AirQCard";
 import PollutantInfo from "./components/PollutantInfo";
@@ -9,14 +10,13 @@ import AirQTable from "./components/AirQTable";
 import NavBar from "./components/NavBar";
 
 export default function App() {
-  const aqiApiToken = import.meta.env.VITE_AQI_API_TOKEN;
   const [airQualityData, setAirQualityData] = useState(null);
   const [error, setError] = useState(null);
 
   const getAirQuality = async (city) => {
     try {
       const response = await fetch(
-        `https://api.waqi.info/feed/${city}/?token=${aqiApiToken}`
+        `https://api.waqi.info/feed/${city}/?token=${config.aqiApiToken}`
       );
       const data = await response.json();
       console.log(data);
