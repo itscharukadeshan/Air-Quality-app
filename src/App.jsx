@@ -33,7 +33,7 @@ export default function App() {
       <NavBar />
       <CitySearch getAirQuality={handleGetAirQuality} />
       {error && <ErrorBox error={error} />}
-      <div className='flex flex-row items-stretch m-4 gap-6'>
+      <div className='flex md:flex-row justify-between mb-4 gap-6'>
         {airQualityData && (
           <>
             <AirQCard data={airQualityData} />
