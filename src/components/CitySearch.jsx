@@ -20,9 +20,9 @@ const CitySearch = ({ getAirQuality }) => {
         type='text'
         placeholder='Enter city...'
         onChange={handleInputChange}
-        className='input input-bordered input-primary w-1/2 max-w-xs'
+        className='input input-bordered input-success w-1/2 max-w-xs'
       />
-      <button type='submit' className='btn btn-outline btn-md btn-primary'>
+      <button type='submit' className='btn btn-outline btn-md btn-success'>
         Search
       </button>
     </form>
