@@ -53,9 +53,9 @@ export default function AirQCard({ data }) {
   return (
     <div
       className={
-        "flex flex-col gap-4 mb-4 items-center w-fit bg-" +
+        "flex flex-col gap-4 mb-4 items-center w-auto bg-" +
         cardColor +
-        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-90 p-8"
+        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 p-8"
       }>
       <h2 className={`font-mono font-extrabold text-4xl text-${textColor}`}>
         {city.name}
@@ -65,7 +65,7 @@ export default function AirQCard({ data }) {
           <div className='stat place-items-center'>
             <div className='stat-title'>Air Quality</div>
             <div className='stat-value'>{aqi}</div>
-            <div className='stat-desc'></div>
+            <div className='stat-desc'> </div>
           </div>
 
           <div className='stat place-items-center'>
@@ -75,9 +75,9 @@ export default function AirQCard({ data }) {
           </div>
 
           <div className='stat place-items-center'>
-            <div className='stat-title'>Updated time</div>
+            <div className='stat-title'>Updated time ({time.tz} ) </div>
             <div className='stat-value'>{formattedDate}</div>
-            <div className='stat-desc'>Local time</div>
+            <div className='stat-desc'></div>
           </div>
         </div>
       </div>
