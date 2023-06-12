@@ -4,8 +4,8 @@ import React from "react";
 
 export default function NavBar() {
   return (
-    <div className='navbar bg-base-100'>
-      <a className='btn btn-ghost normal-case text-xl'>Air Quality Checker</a>
+    <div className=' text-4xl font-mono font-extrabold pb-4'>
+      Air Quality Checker
     </div>
   );
 }

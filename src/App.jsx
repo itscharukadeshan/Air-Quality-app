@@ -29,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className='p-4'>
+    <div className='p-12'>
       <NavBar />
       <CitySearch getAirQuality={handleGetAirQuality} />
       {error && <ErrorBox error={error} />}
