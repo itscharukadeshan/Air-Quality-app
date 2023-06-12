@@ -17,16 +17,16 @@ export default function AirQCard({ data }) {
     } else if (aqi <= 300) {
       return "bg-unhealthy text-white";
     } else {
-      return "bg-hazardous ";
+      return "bg-hazardous";
     }
   };
 
   return (
-    <div className={`card card-side ${getCardColor(aqi)} shadow-xl w-fit p-4`}>
+    <div className={`card card-side ${getCardColor(aqi)} shadow-xl w-3/4 p-4`}>
       <figure>
         <img src='#' alt={` image of ${city.name}`} />
       </figure>
-      <div className='card-body'>
+      <div className='card-body text-black'>
         <h2 className='card-title'>{city.name}</h2>
         <div className='py-4'>
           <p>Air Quality Index {aqi}</p>

@@ -6,7 +6,21 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        success: "#009966",
+
+        warning: "#ffde33",
+
+        orange: "#ff9933",
+
+        danger: "#cc0033",
+
+        unhealthy: "#660099",
+
+        hazardous: "#4b0014",
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
@@ -25,16 +39,7 @@ export default {
 
           info: "#5ba8f1",
 
-          success: "#18bfa8",
-
-          warning: "#fa971e",
-
           error: "#f07056",
-          success: "#009966",
-          orange: "#ffde33",
-          danger: "#ff9933",
-          unhealthy: "#660099",
-          hazardous: "#7e0023",
         },
       },
     ],

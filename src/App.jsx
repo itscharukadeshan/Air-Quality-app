@@ -4,6 +4,8 @@ import { useState } from "react";
 import CitySearch from "./components/CitySearch";
 import ErrorBox from "./components/ErrorBox";
 import AirQCard from "./components/AirQCard";
+import PollutantInfo from "./components/PollutantInfo";
+import AirQTable from "./components/AirQTable";
 
 export default function App() {
   const aqiApiToken = import.meta.env.VITE_AQI_API_TOKEN;
@@ -50,8 +52,10 @@ export default function App() {
       {airQualityData && (
         <>
           <AirQCard data={airQualityData} />
+          <PollutantInfo pollutant={airQualityData.dominentpol} />
         </>
       )}
+      <AirQTable />
     </div>
   );
 }
