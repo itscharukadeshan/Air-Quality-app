@@ -6,6 +6,7 @@ import ErrorBox from "./components/ErrorBox";
 import AirQCard from "./components/AirQCard";
 import PollutantInfo from "./components/PollutantInfo";
 import AirQTable from "./components/AirQTable";
+import NavBar from "./components/NavBar";
 
 export default function App() {
   const aqiApiToken = import.meta.env.VITE_AQI_API_TOKEN;
@@ -46,7 +47,7 @@ export default function App() {
 
   return (
     <div className='p-4'>
-      <h1 className='text-3xl font-bold '>Air Quality Index Checker</h1>
+      <NavBar />
       <CitySearch getAirQuality={getAirQuality} />
       {error && <ErrorBox error={error} />}
       {airQualityData && (
