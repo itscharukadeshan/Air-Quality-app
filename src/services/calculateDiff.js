@@ -4,7 +4,7 @@ import moment from "moment";
 
 export default function calculateDiff(time) {
   const currentUTCTime = moment().utc(time.tz);
-  const givenUTCTime = moment.utc(time.s);
+  const givenUTCTime = moment(time.s);
 
   const timeDifference = givenUTCTime.diff(currentUTCTime);
 
