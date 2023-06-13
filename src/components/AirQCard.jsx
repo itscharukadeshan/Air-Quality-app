@@ -18,7 +18,6 @@ export default function AirQCard({ data }) {
   const formattedCommonCityName = commonCityName.replace(/-/g, " ");
 
   const datetimeString = time.s;
-  console.log(time.s);
   const formattedDate = moment(datetimeString).format("h.mm A");
 
   const cityNames = city.name;
