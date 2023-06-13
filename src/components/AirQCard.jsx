@@ -10,7 +10,10 @@ export default function AirQCard({ data }) {
   const datetimeString = time.s;
   const formattedDate = moment(datetimeString).format("h.mm A");
   const cityNames = city.name;
-  const commonName = cityNames.split(",")[0];
+  const locationName = cityNames.split(",").map((name, index) => ({
+    id: index,
+    name: name.trim(),
+  }));
 
   const getCardColor = (aqi) => {
     if (aqi <= 50) {
@@ -52,17 +55,18 @@ export default function AirQCard({ data }) {
     getColor(cardColor);
   }, [cardColor]);
 
-  return (
+  return data ? (
     <div
       className={
         "flex flex-col gap-4 mb-4 items-center w-fit bg-" +
         cardColor +
         " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg p-8"
       }>
-      <h2
-        className={`font-mono pt-8 font-extrabold text-4xl text-${textColor}`}>
-        {commonCityName}
-      </h2>
+      <div
+        className={` flex flex-col gap-2 items-center font-sans pt-4 font-extrabold text-4xl text-${textColor}`}>
+        {`${commonCityName}`}
+        <div className='font-mono text-2xl font-light'>{`(${locationName[0].name})`}</div>
+      </div>
       <div>
         <div className='stats shadow'>
           <div className='stat place-items-center'>
@@ -85,5 +89,5 @@ export default function AirQCard({ data }) {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 }

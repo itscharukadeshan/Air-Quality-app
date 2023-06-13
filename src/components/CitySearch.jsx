@@ -24,7 +24,8 @@ const CitySearch = ({ getAirQuality }) => {
     try {
       await getAirQuality(formattedCity);
     } catch (error) {
-      toast.error("An error occurred. Please try again later.");
+      let errormessage = "An error occurred. Please try again later.";
+      toast.error(errormessage);
     }
   };
 

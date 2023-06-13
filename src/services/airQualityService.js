@@ -18,28 +18,10 @@ export const getAirQuality = async (city) => {
         errorMessage = data.data.message;
       }
 
-      toast.error(errorMessage, {
-        position: "top-right",
-        autoClose: 3000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        className: "dark-toast",
-        bodyClassName: "dark-toast-body",
-      });
+      toast.error(errorMessage);
     }
   } catch (err) {
-    toast.error(errorMessage, {
-      position: "top-right",
-      autoClose: 3000,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      className: "dark-toast",
-      bodyClassName: "dark-toast-body",
-    });
+    toast.error(errorMessage);
     throw new Error("There's something wrong going on!");
   }
 };

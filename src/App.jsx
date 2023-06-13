@@ -18,6 +18,7 @@ export default function App() {
   const handleGetAirQuality = async (city) => {
     try {
       const data = await getAirQuality(city);
+      let commonCityName;
       data.commonCityName = await city;
       setAirQualityData(data);
       setError(null);
