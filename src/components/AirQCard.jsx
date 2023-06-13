@@ -9,6 +9,7 @@ export default function AirQCard({ data }) {
 
   const datetimeString = time.s;
   const formattedDate = moment(datetimeString).format("h.mm A");
+  const formattedCommonCityName = commonCityName.replace(/-/g, " ");
   const cityNames = city.name;
   const locationName = cityNames.split(",").map((name, index) => ({
     id: index,
@@ -64,7 +65,7 @@ export default function AirQCard({ data }) {
       }>
       <div
         className={` flex flex-col gap-2 items-center font-sans pt-4 font-extrabold text-4xl text-${textColor}`}>
-        {`${commonCityName}`}
+        {`${formattedCommonCityName}`}
         <div className='font-mono text-2xl font-light'>{`(${locationName[0].name})`}</div>
       </div>
       <div>

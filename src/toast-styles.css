@@ -6,7 +6,6 @@
   border-radius: 10px;
 }
 
-/* Customize the toast body's font color, size, and weight */
 .dark-toast .Toastify__toast-body {
   color: #fff;
   padding: 10px;
