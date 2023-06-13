@@ -25,6 +25,7 @@ const CitySearch = ({ getAirQuality }) => {
     try {
       setIsLoading(true);
       await getAirQuality(formattedCity);
+      setSuggestions([]);
     } catch (error) {
       let errormessage = "An error occurred. Please try again later.";
       toast.error(errormessage);
