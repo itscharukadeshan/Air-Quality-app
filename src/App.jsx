@@ -18,8 +18,7 @@ export default function App() {
   const handleGetAirQuality = async (city) => {
     try {
       const data = await getAirQuality(city);
-      console.log(data);
-
+      data.commonCityName = { city };
       setAirQualityData(data);
       setError(null);
     } catch (err) {
@@ -29,6 +28,7 @@ export default function App() {
       setAirQualityData(null);
     }
   };
+  console.log(airQualityData);
 
   return (
     <div className='p-12'>
