@@ -82,22 +82,22 @@ export default function AirQCard({ data }) {
       <div>
         <div className='stats shadow'>
           <div className='stat place-items-center'>
-            <div className='stat-title'>Air Quality</div>
+            <div className='stat-title text-xl'>Air Quality</div>
             <div className='stat-value'>{aqi}</div>
-            <div className='stat-desc'> </div>
+            <div className='stat-desc py-2'> </div>
           </div>
 
           <div className='stat place-items-center'>
-            <div className='stat-title'>Dominant Pollutant</div>
+            <div className='stat-title text-xl'>Dominant Pollutant</div>
             <div className='stat-value'>{dominentpol}</div>
-            <div className='stat-desc'></div>
+            <div className='stat-desc py-2'></div>
           </div>
 
           <div className='stat place-items-center'>
             <div className='stat-title'>Updated time</div>
             <div className='stat-value'>{formattedDate}</div>
-            <div className='stat-desc'>
-              {formattedHours} hours and {formattedMinuets} minuets ago
+            <div className='stat-desc pt-2'>
+              ( {formattedHours} hours {formattedMinuets} minuets ago )
             </div>
           </div>
         </div>
