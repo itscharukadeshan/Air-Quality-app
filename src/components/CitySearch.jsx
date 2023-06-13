@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const CitySearch = ({ getAirQuality }) => {
   const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = async (event) => {
     const value = event.target.value;
@@ -22,20 +23,29 @@ const CitySearch = ({ getAirQuality }) => {
     event.preventDefault();
     const formattedCity = inputValue.replace(/ /g, "-");
     try {
+      setIsLoading(true);
       await getAirQuality(formattedCity);
     } catch (error) {
       let errormessage = "An error occurred. Please try again later.";
       toast.error(errormessage);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleSelectSuggestion = (suggestion) => {
+  const handleSelectSuggestion = async (suggestion) => {
     const cityNames = suggestion.matching_full_name;
     const commonName = cityNames.split(",")[0];
     setInputValue(commonName);
     const formattedCity = commonName.replace(/ /g, "-");
-    getAirQuality(formattedCity);
-    setSuggestions([]);
+    try {
+      setIsLoading(true);
+      await getAirQuality(formattedCity);
+      setSuggestions([]);
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -61,6 +71,9 @@ const CitySearch = ({ getAirQuality }) => {
       </div>
 
       <button type='submit' className='btn btn-outline btn-md btn-success'>
+        {isLoading ? (
+          <span className='loading loading-bars loading-sm'></span>
+        ) : null}
         Search
       </button>
     </form>
