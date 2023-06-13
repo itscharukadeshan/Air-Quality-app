@@ -22,6 +22,16 @@ const CitySearch = ({ getAirQuality }) => {
     const formattedCity = inputValue.replace(/ /g, "-");
     getAirQuality(formattedCity);
   };
+
+  const handleSelectSuggestion = (suggestion) => {
+    const cityNames = suggestion.matching_full_name;
+    const commonName = cityNames.split(",")[0];
+    setInputValue(commonName);
+    const formattedCity = commonName.replace(/ /g, "-");
+    getAirQuality(formattedCity);
+    setSuggestions([]);
+  };
+
   return (
     <form onSubmit={handleSearch} className='mb-4 flex flex-row gap-4 py-6'>
       <div className='flex flex-col'>
@@ -34,7 +44,10 @@ const CitySearch = ({ getAirQuality }) => {
         />
         <ul className='font-bold bg-opacity-30 bg-green-700 rounded-b-xl shadow-xl'>
           {suggestions.map((suggestion) => (
-            <li className='p-4 shadow-2xl' key={suggestion.matching_full_name}>
+            <li
+              className='p-4 shadow-2xl'
+              key={suggestion.matching_full_name}
+              onClick={() => handleSelectSuggestion(suggestion)}>
               {suggestion.matching_full_name}
             </li>
           ))}
