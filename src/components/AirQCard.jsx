@@ -12,6 +12,8 @@ export default function AirQCard({ data }) {
   const updateTime = calculateDiff(time);
   const hours = updateTime.hours();
   const minuets = updateTime.minutes();
+  const formattedHours = Math.abs(hours);
+  const formattedMinuets = Math.abs(minuets);
 
   const formattedCommonCityName = commonCityName.replace(/-/g, " ");
 
@@ -95,7 +97,7 @@ export default function AirQCard({ data }) {
             <div className='stat-title'>Updated time</div>
             <div className='stat-value'>{formattedDate}</div>
             <div className='stat-desc'>
-              {hours} hours and {minuets} minuets ago
+              {formattedHours} hours and {formattedMinuets} minuets ago
             </div>
           </div>
         </div>
