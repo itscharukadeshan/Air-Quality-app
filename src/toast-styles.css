@@ -1,13 +1,15 @@
 /** @format */
 
 .dark-toast {
-  background-color: rgba(167, 167, 167, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
+  border-radius: 10px;
 }
 
 /* Customize the toast body's font color, size, and weight */
 .dark-toast .Toastify__toast-body {
   color: #fff;
+  padding: 10px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
