@@ -94,7 +94,7 @@ export default function AirQCard({ data }) {
           </div>
 
           <div className='stat place-items-center'>
-            <div className='stat-title'>Updated time (UTC ${time.tz})</div>
+            <div className='stat-title'>Updated time (UTC {time.tz})</div>
             <div className='stat-value'>{formattedDate}</div>
             <div className='stat-desc pt-2'></div>
           </div>
