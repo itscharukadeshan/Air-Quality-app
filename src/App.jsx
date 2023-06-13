@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import CitySearch from "./components/CitySearch";
-import ErrorBox from "./components/ErrorBox";
 import AirQCard from "./components/AirQCard";
 import PollutantInfo from "./components/PollutantInfo";
 import AirQTable from "./components/AirQTable";
 import NavBar from "./components/NavBar";
 import { getAirQuality } from "./services/airQualityService";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const [airQualityData, setAirQualityData] = useState(null);
@@ -32,7 +33,6 @@ export default function App() {
     <div className='p-12'>
       <NavBar />
       <CitySearch getAirQuality={handleGetAirQuality} />
-      {error && <ErrorBox error={error} />}
       <div className='flex md:flex-row justify-between mb-4 gap-6'>
         {airQualityData && (
           <>
@@ -46,6 +46,7 @@ export default function App() {
           <PollutantInfo pollutant={airQualityData.dominentpol} />
         </>
       )}
+      <ToastContainer />
     </div>
   );
 }

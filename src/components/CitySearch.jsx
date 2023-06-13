@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { getCityNameByInput } from "../services/searchServices";
+import { toast } from "react-toastify";
 
 const CitySearch = ({ getAirQuality }) => {
   const [inputValue, setInputValue] = useState("");
@@ -17,10 +18,14 @@ const CitySearch = ({ getAirQuality }) => {
     }
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
     const formattedCity = inputValue.replace(/ /g, "-");
-    getAirQuality(formattedCity);
+    try {
+      await getAirQuality(formattedCity);
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   const handleSelectSuggestion = (suggestion) => {
