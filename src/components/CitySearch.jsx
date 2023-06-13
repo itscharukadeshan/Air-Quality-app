@@ -12,6 +12,9 @@ const CitySearch = ({ getAirQuality }) => {
     setInputValue(value);
     const suggestions = await getCityNameByInput(value);
     setSuggestions(suggestions.slice(0, 5));
+    if (!value) {
+      setSuggestions([]);
+    }
   };
 
   const handleSearch = (event) => {
