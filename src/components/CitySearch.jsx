@@ -45,7 +45,7 @@ const CitySearch = ({ getAirQuality }) => {
         <ul className='font-bold bg-opacity-30 bg-green-700 rounded-b-xl shadow-xl'>
           {suggestions.map((suggestion) => (
             <li
-              className='p-4 shadow-2xl'
+              className='p-4 shadow-2xl hover:bg-green-600 transition duration-300 cursor-pointer'
               key={suggestion.matching_full_name}
               onClick={() => handleSelectSuggestion(suggestion)}>
               {suggestion.matching_full_name}

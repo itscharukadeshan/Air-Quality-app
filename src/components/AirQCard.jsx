@@ -9,6 +9,8 @@ export default function AirQCard({ data }) {
 
   const datetimeString = time.s;
   const formattedDate = moment(datetimeString).format("h.mm A");
+  const cityNames = city.name;
+  const commonName = cityNames.split(",")[0];
 
   const getCardColor = (aqi) => {
     if (aqi <= 50) {
@@ -59,7 +61,7 @@ export default function AirQCard({ data }) {
       }>
       <h2
         className={`font-mono pt-8 font-extrabold text-4xl text-${textColor}`}>
-        {city.name}
+        {commonName}
       </h2>
       <div>
         <div className='stats shadow'>
