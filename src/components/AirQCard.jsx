@@ -2,15 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import calculateDiff from "../services/calculateDiff";
 
 export default function AirQCard({ data }) {
   const { aqi, city, dominentpol, commonCityName, time } = data;
+
   const [textColor, setTextColor] = useState("");
+
+  const updateTime = calculateDiff(time);
+
+  const formattedCommonCityName = commonCityName.replace(/-/g, " ");
 
   const datetimeString = time.s;
   const formattedDate = moment(datetimeString).format("h.mm A");
-  const formattedCommonCityName = commonCityName.replace(/-/g, " ");
+
   const cityNames = city.name;
+
   const locationName = cityNames.split(",").map((name, index) => ({
     id: index,
     name: name.trim(),
@@ -83,7 +90,7 @@ export default function AirQCard({ data }) {
           </div>
 
           <div className='stat place-items-center'>
-            <div className='stat-title'>Updated time ({time.tz} ) </div>
+            <div className='stat-title'>Updated time{updateTime.hours}</div>
             <div className='stat-value'>{formattedDate}</div>
             <div className='stat-desc'></div>
           </div>
