@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 
 export default function AirQCard({ data }) {
-  const { aqi, city, dominentpol, time } = data;
+  const { aqi, city, dominentpol, commonCityName, time } = data;
   const [textColor, setTextColor] = useState("");
 
   const datetimeString = time.s;
@@ -61,7 +61,7 @@ export default function AirQCard({ data }) {
       }>
       <h2
         className={`font-mono pt-8 font-extrabold text-4xl text-${textColor}`}>
-        {commonName}
+        {commonCityName}
       </h2>
       <div>
         <div className='stats shadow'>
