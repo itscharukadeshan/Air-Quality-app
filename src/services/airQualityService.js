@@ -1,5 +1,6 @@
 /** @format */
 
+import { toast } from "react-toastify";
 import config from "../../utils/config";
 
 export const getAirQuality = async (city) => {
@@ -12,12 +13,17 @@ export const getAirQuality = async (city) => {
     if (response.ok && data.status === "ok") {
       return data.data;
     } else {
-      throw new Error(
-        "We couldn't find your city. Please check the spelling of your search."
-      );
+      let errorMessage =
+        "We couldn't find your city. Please check the spelling of your search.";
+      if (data && data.data && data.data.message) {
+        errorMessage = data.data.message;
+      }
+
+      toast.warn(errorMessage);
     }
   } catch (err) {
     console.error(err.message);
+    toast.error("There's something wrong going on!");
     throw new Error("There's something wrong going on!");
   }
 };
