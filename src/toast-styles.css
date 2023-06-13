@@ -1,0 +1,13 @@
+/** @format */
+
+.dark-toast {
+  background-color: rgba(167, 167, 167, 0.5);
+  color: #fff;
+}
+
+/* Customize the toast body's font color, size, and weight */
+.dark-toast .Toastify__toast-body {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}

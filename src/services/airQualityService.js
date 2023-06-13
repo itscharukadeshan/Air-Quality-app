@@ -13,17 +13,33 @@ export const getAirQuality = async (city) => {
     if (response.ok && data.status === "ok") {
       return data.data;
     } else {
-      let errorMessage =
-        "We couldn't find your city. Please check the spelling of your search.";
+      let errorMessage = "City not found. Please check your search spellings";
       if (data && data.data && data.data.message) {
         errorMessage = data.data.message;
       }
 
-      toast.warn(errorMessage);
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 3000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: "dark-toast",
+        bodyClassName: "dark-toast-body",
+      });
     }
   } catch (err) {
-    console.error(err.message);
-    toast.error("There's something wrong going on!");
+    toast.error(errorMessage, {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      className: "dark-toast",
+      bodyClassName: "dark-toast-body",
+    });
     throw new Error("There's something wrong going on!");
   }
 };
