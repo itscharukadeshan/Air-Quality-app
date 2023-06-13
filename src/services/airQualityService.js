@@ -13,7 +13,7 @@ export const getAirQuality = async (city) => {
     if (response.ok && data.status === "ok") {
       return data.data;
     } else {
-      let errorMessage = "City not found. Please check your search spellings";
+      let errorMessage = "City air quality data not found !";
       if (data && data.data && data.data.message) {
         errorMessage = data.data.message;
       }
