@@ -53,7 +53,7 @@ const PollutantInfo = ({ data }) => {
         <div className='border border-gray-300 rounded-lg p-8'>
           <h3 className='mt-4 text-2xl font-bold sm:text-2xl'>
             Primary Pollutant{" "}
-            <span className=' pl-2'>
+            <span>
               {formattedPollutant.letters}
               <sub className='text-sm font-light pl-2'>
                 {formattedPollutant.numbers}
