@@ -71,12 +71,12 @@ export default function AirQCard({ data }) {
   return data ? (
     <div
       className={
-        "flex flex-col gap-4 mb-4 items-center w-fit bg-" +
+        "flex flex-col gap-4 mb-4 items-center w-full bg-" +
         cardColor +
         " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg p-8"
       }>
       <div
-        className={` flex flex-col gap-2 items-center font-sans pt-4 font-extrabold text-4xl text-${textColor}`}>
+        className={` flex flex-col md:flex-row gap-2 items-center font-sans pt-4 font-extrabold text-4xl text-${textColor}`}>
         {`${formattedCommonCityName}`}
         <div className='font-mono text-2xl font-light'>{`(${locationName[0].name})`}</div>
       </div>
