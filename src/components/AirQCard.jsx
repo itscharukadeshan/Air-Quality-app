@@ -82,7 +82,7 @@ export default function AirQCard({ data }) {
       </div>
 
       <div>
-        <div className='stats shadow'>
+        <div className='stats stats-vertical lg:stats-horizontal shadow'>
           <div className='stat place-items-center'>
             <div className='stat-title text-xl'>Air Quality</div>
             <div className='stat-value'>{aqi}</div>
