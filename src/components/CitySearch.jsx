@@ -21,7 +21,7 @@ const CitySearch = ({ getAirQuality }) => {
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    const formattedCity = inputValue.replace(/ /g, "-");
+    const formattedCity = inputValue.trim().replace(/ /g, "-");
     try {
       setIsLoading(true);
       await getAirQuality(formattedCity);
@@ -38,7 +38,7 @@ const CitySearch = ({ getAirQuality }) => {
     const cityNames = suggestion.matching_full_name;
     const commonName = cityNames.split(",")[0];
     setInputValue(commonName);
-    const formattedCity = commonName.replace(/ /g, "-");
+    const formattedCity = commonName.trim().replace(/ /g, "-");
     try {
       setIsLoading(true);
       await getAirQuality(formattedCity);
