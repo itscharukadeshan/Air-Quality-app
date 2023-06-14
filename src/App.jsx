@@ -57,6 +57,7 @@ export default function App() {
 
   return (
     <div className='p-12'>
+      <NavBar />
       <div className='mb-4'>
         <CitySearch getAirQuality={handleGetAirQuality} />
       </div>
