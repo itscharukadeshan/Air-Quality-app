@@ -30,6 +30,7 @@ const CitySearch = ({ getAirQuality }) => {
       let errormessage = "An error occurred. Please try again later.";
       toast.error(errormessage);
     } finally {
+      setSuggestions([]);
       setIsLoading(false);
     }
   };
@@ -45,6 +46,7 @@ const CitySearch = ({ getAirQuality }) => {
       setSuggestions([]);
     } catch (error) {
     } finally {
+      setSuggestions([]);
       setIsLoading(false);
     }
   };
