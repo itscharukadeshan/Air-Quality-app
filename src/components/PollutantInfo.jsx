@@ -47,16 +47,18 @@ const PollutantInfo = ({ pollutant }) => {
 
   return (
     <div>
-      <a
-        href={pollutantInfo.url}
-        target='_blank'
-        className={`group relative block h-64 sm:h-80 lg:h-96 `}>
+      <a className={`group relative block h-64 sm:h-80 lg:h-96 `}>
         <div className='border border-gray-300 rounded-lg p-8'>
           <h3 className='mt-4 text-2xl font-bold sm:text-2xl'>
             Primary Pollutant {pollutant}
           </h3>
           <p className='my-4 text-sm sm:text-base'>{pollutantInfo.text}</p>
-          <button className='btn btn-outline btn-success'>Read More</button>
+          <button
+            className='btn btn-outline btn-success'
+            href={pollutantInfo.url}
+            target='_blank'>
+            Read More
+          </button>
         </div>
       </a>
     </div>
