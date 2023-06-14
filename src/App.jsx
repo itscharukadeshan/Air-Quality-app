@@ -21,6 +21,32 @@ export default function App() {
       if (data) {
         data.commonCityName = await city;
       }
+      if (data) {
+        const pollutant = data.dominentpol;
+
+        let letters = pollutant
+          .split("")
+          .filter((char) => /[a-zA-Z]/.test(char))
+          .join("");
+        let numbers = pollutant
+          .split("")
+          .filter((char) => /\d/.test(char))
+          .join("");
+
+        if (letters.toLowerCase() === "pm" && numbers === "25") {
+          numbers = "2.5";
+        }
+
+        letters = letters.toUpperCase();
+
+        data.formattedPolutent = {
+          letters: letters,
+          numbers: numbers,
+        };
+      }
+
+      console.log(data);
+
       setAirQualityData(data);
       setError(null);
     } catch (err) {
