@@ -17,12 +17,12 @@ export default function AirQTable() {
           <tr>
             <td>0 - 50</td>
             <td>Good</td>
-            <td className='bg-success text-black'>Dark green</td>
+            <td className='bg-success text-black'>Green</td>
           </tr>
           <tr>
             <td>51 - 100</td>
             <td>Moderate</td>
-            <td className='bg-warning  text-black'>Golden yellow</td>
+            <td className='bg-warning  text-black'>Yellow</td>
           </tr>
           <tr>
             <td>101 - 150</td>
@@ -37,12 +37,12 @@ export default function AirQTable() {
           <tr>
             <td>201 - 300</td>
             <td>Very Unhealthy</td>
-            <td className='bg-unhealthy text-white'>Dark purple</td>
+            <td className='bg-unhealthy text-white'>Purple</td>
           </tr>
           <tr>
             <td>301 and higher</td>
             <td>Hazardous</td>
-            <td className='bg-hazardous text-white'>Dark red</td>
+            <td className='bg-hazardous text-white'>Maroon</td>
           </tr>
         </tbody>
       </table>
