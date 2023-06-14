@@ -91,9 +91,9 @@ export default function AirQCard({ data }) {
           <div className='stat place-items-center'>
             <div className='stat-title text-xl'>Dominant Pollutant</div>
             <div className='stat-value'>
-              <span>
+              <span className='pl-2'>
                 {formattedPolutent.letters}
-                <sub className='text-sm'>{formattedPolutent.numbers}</sub>
+                <sub className='text-sm pl-2'>{formattedPolutent.numbers}</sub>
               </span>
             </div>
             <div className='stat-desc py-2'></div>
