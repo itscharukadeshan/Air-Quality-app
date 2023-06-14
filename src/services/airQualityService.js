@@ -13,7 +13,7 @@ export const getAirQuality = async (city) => {
     if (response.ok && data.status === "ok") {
       return data.data;
     } else {
-      let errorMessage = "City air quality data not found !";
+      let errorMessage = `${city}'s air quality data is not found`;
       if (data && data.data && data.data.message) {
         errorMessage = data.data.message;
       }
@@ -21,7 +21,7 @@ export const getAirQuality = async (city) => {
       toast.error(errorMessage);
     }
   } catch (err) {
-    toast.error(errorMessage);
+    toast.error(err.message);
     throw new Error("There's something wrong going on!");
   }
 };

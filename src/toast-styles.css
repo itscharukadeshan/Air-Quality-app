@@ -7,11 +7,14 @@
 }
 
 .Toastify__toast-body {
-  color: #fff;
+  color: #c2c2c2;
   padding: 10px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
 }
 .Toastify__close-button {
   color: rgb(235, 235, 235);
+}
+.Toastify__toast-icon {
+  padding: 0.05rem;
 }
