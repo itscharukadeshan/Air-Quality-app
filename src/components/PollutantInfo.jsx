@@ -63,8 +63,7 @@ const PollutantInfo = ({ data }) => {
           <p className='my-4 text-sm sm:text-base'>{pollutantInfo.text}</p>
           <button
             className='btn btn-outline btn-success'
-            href={pollutantInfo.url}
-            target='_blank'>
+            onClick={() => window.open(pollutantInfo.url, "_blank")}>
             Read More
           </button>
         </div>
