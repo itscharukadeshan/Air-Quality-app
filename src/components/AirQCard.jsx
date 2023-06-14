@@ -76,10 +76,11 @@ export default function AirQCard({ data }) {
         " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg p-8"
       }>
       <div
-        className={` flex flex-col gap-2 items-center font-sans pt-4 font-extrabold text-4xl text-${textColor}`}>
+        className={`flex flex-col gap-2 items-center justify-center text-center font-sans pt-4 font-extrabold text-4xl text-${textColor} sm:justify-start sm:text-left`}>
         {`${formattedCommonCityName}`}
         <div className='font-mono text-2xl font-light'>{`(${locationName[0].name})`}</div>
       </div>
+
       <div>
         <div className='stats shadow'>
           <div className='stat place-items-center'>
