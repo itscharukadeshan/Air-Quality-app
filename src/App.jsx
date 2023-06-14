@@ -77,7 +77,9 @@ export default function App() {
           <PollutantInfo data={airQualityData} />
         </>
       )}
-      <ToastContainer />
+      <ToastContainer
+        className={`Toastify__toast Toastify__toast-body Toastify__close-button Toastify__toast-icon`}
+      />
     </div>
   );
 }
