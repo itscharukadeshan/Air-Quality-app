@@ -1,14 +1,17 @@
 /** @format */
 
-.dark-toast {
+.Toastify__toast {
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   border-radius: 10px;
 }
 
-.dark-toast .Toastify__toast-body {
+.Toastify__toast-body {
   color: #fff;
   padding: 10px;
   font-size: 16px;
   font-weight: 500;
+}
+.Toastify__close-button {
+  color: rgb(235, 235, 235);
 }

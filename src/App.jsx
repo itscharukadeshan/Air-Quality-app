@@ -7,7 +7,7 @@ import PollutantInfo from "./components/PollutantInfo";
 import AirQTable from "./components/AirQTable";
 import NavBar from "./components/NavBar";
 import { getAirQuality } from "./services/airQualityService";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "./toast-styles.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -48,10 +48,9 @@ export default function App() {
       setAirQualityData(data);
       setError(null);
     } catch (err) {
-      console.error(err.message);
-
       setError(err.message);
       setAirQualityData(null);
+      toast.error(error);
     }
   };
 
