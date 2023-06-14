@@ -57,15 +57,20 @@ export default function App() {
 
   return (
     <div className='p-12'>
-      <NavBar />
-      <CitySearch getAirQuality={handleGetAirQuality} />
-      <div className='flex md:flex-row justify-between mb-4 gap-6'>
+      <div className='mb-4'>
+        <CitySearch getAirQuality={handleGetAirQuality} />
+      </div>
+      <div className='flex flex-col md:flex-row justify-between gap-6'>
         {airQualityData && (
           <>
-            <AirQCard data={airQualityData} />
+            <div className='md:w-1/2'>
+              <AirQCard data={airQualityData} />
+            </div>
           </>
         )}
-        <AirQTable />
+        <div className='md:w-1/2'>
+          <AirQTable />
+        </div>
       </div>
       {airQualityData && (
         <>
