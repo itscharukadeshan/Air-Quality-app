@@ -5,7 +5,7 @@ import moment from "moment";
 import calculateDiff from "../services/calculateDiff";
 
 export default function AirQCard({ data }) {
-  const { aqi, city, dominentpol, formattedPolutent, commonCityName, time } =
+  const { aqi, city, dominentpol, formattedPollutant, commonCityName, time } =
     data;
 
   const [textColor, setTextColor] = useState("");
@@ -92,9 +92,9 @@ export default function AirQCard({ data }) {
             <div className='stat-title text-xl'>Dominant Pollutant</div>
             <div className='stat-value'>
               <span className=' pl-2'>
-                {formattedPolutent.letters}
+                {formattedPollutant.letters}
                 <sub className='text-sm font-light pl-2'>
-                  {formattedPolutent.numbers}
+                  {formattedPollutant.numbers}
                 </sub>
               </span>
             </div>

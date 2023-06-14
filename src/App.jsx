@@ -39,13 +39,11 @@ export default function App() {
 
         letters = letters.toUpperCase();
 
-        data.formattedPolutent = {
+        data.formattedPollutant = {
           letters: letters,
           numbers: numbers,
         };
       }
-
-      console.log(data);
 
       setAirQualityData(data);
       setError(null);
@@ -71,7 +69,7 @@ export default function App() {
       </div>
       {airQualityData && (
         <>
-          <PollutantInfo pollutant={airQualityData.dominentpol} />
+          <PollutantInfo data={airQualityData} />
         </>
       )}
       <ToastContainer />

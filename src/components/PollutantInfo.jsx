@@ -2,8 +2,10 @@
 
 import React from "react";
 
-const PollutantInfo = ({ pollutant }) => {
-  const getPollutantInfo = (pollutant) => {
+const PollutantInfo = ({ data }) => {
+  const pollutant = data.dominentpol;
+  const formattedPollutant = data.formattedPollutant;
+  const getPollutantInfo = (pollutant, formattedPollutant) => {
     switch (pollutant) {
       case "pm25":
         return {
@@ -50,7 +52,13 @@ const PollutantInfo = ({ pollutant }) => {
       <a className={`group relative block h-64 sm:h-80 lg:h-96 `}>
         <div className='border border-gray-300 rounded-lg p-8'>
           <h3 className='mt-4 text-2xl font-bold sm:text-2xl'>
-            Primary Pollutant {pollutant}
+            Primary Pollutant{" "}
+            <span className=' pl-2'>
+              {formattedPollutant.letters}
+              <sub className='text-sm font-light pl-2'>
+                {formattedPollutant.numbers}
+              </sub>
+            </span>
           </h3>
           <p className='my-4 text-sm sm:text-base'>{pollutantInfo.text}</p>
           <button
