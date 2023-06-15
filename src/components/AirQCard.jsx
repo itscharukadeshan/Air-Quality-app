@@ -73,7 +73,7 @@ export default function AirQCard({ data }) {
       className={
         "flex flex-col gap-4 mb-4 items-center w-full bg-" +
         cardColor +
-        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg p-8"
+        " rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-90 p-8 "
       }>
       <div
         className={`flex flex-col gap-2 items-center justify-center text-center font-sans pt-4 lg:font-extrabold font-bold text-2xl lg:text-4xl text-${textColor}`}>

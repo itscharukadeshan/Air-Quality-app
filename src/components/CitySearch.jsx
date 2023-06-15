@@ -52,19 +52,19 @@ const CitySearch = ({ getAirQuality }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className='mb-4 flex flex-row gap-4 py-6'>
+    <form onSubmit={handleSearch} className='mb-4 flex flex-row py-6'>
       <div className='flex flex-col'>
         <input
           type='text'
           placeholder='Enter city...'
           value={inputValue}
           onChange={handleInputChange}
-          className='input input-bordered input-success w-full'
+          className='input input-bordered join-item'
         />
-        <ul className='font-bold bg-opacity-30 bg-green-700 rounded-b-xl shadow-xl'>
+        <ul className='font-bold bg-opacity-30 bg-gray-700 rounded-b-xl shadow-sm'>
           {suggestions.map((suggestion) => (
             <li
-              className='p-4 shadow-2xl hover:bg-green-600 transition duration-300 cursor-pointer'
+              className='p-4 shadow-2xl hover:bg-gray-600 text-gray-300 hover:text-black transition duration-300 cursor-pointer '
               key={suggestion.matching_full_name}
               onClick={() => handleSelectSuggestion(suggestion)}>
               {suggestion.matching_full_name}
@@ -73,7 +73,7 @@ const CitySearch = ({ getAirQuality }) => {
         </ul>
       </div>
 
-      <button type='submit' className='btn btn-outline btn-md btn-success'>
+      <button type='submit' className='btn join-item rounded-r-full'>
         {isLoading ? (
           <span className='loading loading-bars loading-sm'></span>
         ) : null}
