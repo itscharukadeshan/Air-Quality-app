@@ -55,29 +55,31 @@ export default function App() {
   };
 
   return (
-    <div className='p-12'>
+    <>
       <NavBar />
-      <div className='mb-4'>
-        <CitySearch getAirQuality={handleGetAirQuality} />
-      </div>
-      <div className='flex flex-col md:flex-row justify-between gap-6'>
+      <div className='p-12'>
+        <div className='mb-4'>
+          <CitySearch getAirQuality={handleGetAirQuality} />
+        </div>
+        <div className='flex flex-col md:flex-row justify-between gap-6'>
+          {airQualityData && (
+            <>
+              <div className='md:w-1/2'>
+                <AirQCard data={airQualityData} />
+              </div>
+            </>
+          )}
+          <div className='md:w-1/2'>
+            <AirQTable />
+          </div>
+        </div>
         {airQualityData && (
           <>
-            <div className='md:w-1/2'>
-              <AirQCard data={airQualityData} />
-            </div>
+            <PollutantInfo data={airQualityData} />
           </>
         )}
-        <div className='md:w-1/2'>
-          <AirQTable />
-        </div>
+        <ToastContainer />
       </div>
-      {airQualityData && (
-        <>
-          <PollutantInfo data={airQualityData} />
-        </>
-      )}
-      <ToastContainer />
-    </div>
+    </>
   );
 }
