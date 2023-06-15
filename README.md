@@ -6,7 +6,7 @@
 
 
 ---
-![Imgur](https://imgur.com/ztYyyKg)
+![Imgur](https://imgur.com/ztYyyKg.jpg)
 
 ---
 
