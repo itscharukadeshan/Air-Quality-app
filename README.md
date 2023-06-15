@@ -2,7 +2,7 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&$with=auto&height=350&section=header&text=Air%20Quality%20App&animation=fadeIn&fontSize=60)
 
 
-### Based on air Quality app by [Mayanwolfe](https://www.youtube.com/@MayanwolfeStreams)
+### Based on [air Quality app](https://github.com/Mayanwolfe/AirQualityApp) by [Mayanwolfe](https://www.youtube.com/@MayanwolfeStreams)
 
 
 ---
