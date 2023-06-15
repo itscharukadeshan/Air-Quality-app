@@ -114,7 +114,8 @@ const PollutantInfo = ({ data }) => {
               </sub>
             </span>
           </h3>
-          <p className='my-4 text-sm sm:text-base'>{pollutantInfo.text}</p>
+
+          <p className='my-4 font-sans'>{pollutantInfo.text}</p>
 
           <div>
             {" "}
