@@ -105,7 +105,7 @@ const PollutantInfo = ({ data }) => {
     <div>
       <a className={`group relative block h-64 sm:h-80 lg:h-96 `}>
         <div className='border border-gray-300 rounded-lg p-8'>
-          <h3 className='mt-4 text-2xl font-bold sm:text-2xl'>
+          <h3 className='mt-4 text-2xl font-bold'>
             Primary Pollutant{" "}
             <span>
               {formattedPollutant.letters}
@@ -121,7 +121,7 @@ const PollutantInfo = ({ data }) => {
             <div className='join join-vertical w-full py-4 font-mono '>
               <div className='collapse collapse-arrow join-item border border-gray-300 border-opacity-50'>
                 <input type='radio' name='my-accordion-4' />
-                <div className='collapse-title text-lg font-bold'>
+                <div className='collapse-title text-base lg:text-lg font-bold'>
                   How does {pollutantInfo.name} {""}
                   get into the air
                 </div>
@@ -131,7 +131,7 @@ const PollutantInfo = ({ data }) => {
               </div>
               <div className='collapse collapse-arrow join-item border border-gray-300 border-opacity-50'>
                 <input type='radio' name='my-accordion-4' />
-                <div className='collapse-title text-lg font-bold'>
+                <div className='collapse-title text-base lg:text-lg font-bold'>
                   Health and Environmental Effects of {pollutantInfo.name}
                 </div>
                 <div className='collapse-content font-sans '>
@@ -140,7 +140,7 @@ const PollutantInfo = ({ data }) => {
               </div>
               <div className='collapse collapse-arrow join-item border border-gray-300 border-opacity-50'>
                 <input type='radio' name='my-accordion-4' />
-                <div className='collapse-title text-lg font-bold'>
+                <div className='collapse-title text-base lg:text-lg font-bold'>
                   How Can I Reduce My Exposure to {pollutantInfo.name}
                 </div>
                 <div className='collapse-content font-sans'>
