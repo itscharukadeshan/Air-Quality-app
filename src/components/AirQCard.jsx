@@ -70,6 +70,7 @@ export default function AirQCard({ data }) {
 
   return data ? (
     <div
+      id='aq-card'
       className={
         "flex flex-col gap-4 mb-4 items-center w-full bg-" +
         cardColor +
