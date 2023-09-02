@@ -4,6 +4,6 @@
     "plugin:react/recommended",
     "plugin:cypress/recommended",
     "plugin:jest/recommended",
-    "plugin:testing-library"
+    "plugin:testing-library/react"
   ]
 }

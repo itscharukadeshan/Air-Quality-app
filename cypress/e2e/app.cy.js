@@ -5,7 +5,6 @@ describe("Air quality app", function () {
     cy.visit("https://air-quality-app.vercel.app/");
     cy.contains("Search");
   });
-
   it("can search for a location", function () {
     cy.visit("https://air-quality-app.vercel.app/");
     cy.get("input").type("Helsinki");
@@ -13,7 +12,7 @@ describe("Air quality app", function () {
     cy.get("#aq-card").should("be.visible");
   });
 
-  it("display the air quality range table ", function () {
+  it("display the air quality range table", function () {
     cy.visit("https://air-quality-app.vercel.app/");
     cy.get("#aq-table").should("be.visible");
   });
