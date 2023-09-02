@@ -22,3 +22,20 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  tag_release:
+    if: ${{ github.event_name == 'push'  && !contains(join(toJson(github.event.commits.*.message)), '#skip')}}
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: master
+          DEFAULT_BUMP: minor
