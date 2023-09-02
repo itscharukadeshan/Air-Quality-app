@@ -15,6 +15,7 @@ app.get("/version", (req, res) => {
 
 app.use(cors());
 
+// eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 5000;
 
 app.use(express.static("dist"));
