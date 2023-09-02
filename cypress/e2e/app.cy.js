@@ -7,6 +7,7 @@ describe("Air quality app", function () {
   });
 
   it("can search for a location", function () {
+    cy.visit("https://air-quality-app.vercel.app/");
     cy.get("input").type("Helsinki");
     cy.contains("button", "Search").click();
     cy.get("#aq-card").should("be.visible");
