@@ -13,12 +13,8 @@ describe("Air quality app", function () {
     cy.get("#aq-card").should("be.visible");
   });
 
-  it("display proper error massage", function () {
+  it("display the air quality range table ", function () {
     cy.visit("https://air-quality-app.vercel.app/");
-    cy.get("input").type("Not a city");
-    cy.contains("button", "Search").click();
-    cy.contains("div", "Error")
-      .should("be.visible")
-      .and("contain", "Not a city");
+    cy.get("#aq-table").should("be.visible");
   });
 });
