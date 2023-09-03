@@ -4,7 +4,7 @@ import React from "react";
 
 export default function AirQTable() {
   return (
-    <div id='aq-table' className='overflow-x-auto mb-4'>
+    <div id='aq-table' className='overflow-x-auto mb-5 shadow-2xl'>
       <table className='table table-striped font-mono font-bold'>
         <thead>
           <tr>
