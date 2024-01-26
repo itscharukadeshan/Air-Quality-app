@@ -11,9 +11,15 @@ const CitySearch = ({ getAirQuality }) => {
 
   const handleInputChange = async (event) => {
     const value = event.target.value;
+
     setInputValue(value);
-    const suggestions = await getCityNameByInput(value);
-    setSuggestions(suggestions.slice(0, 5));
+
+    const cities = getCityNameByInput(value);
+
+    const suggestions = cities.map((city) => city.city).slice(0, 5);
+
+    setSuggestions(suggestions);
+
     if (!value) {
       setSuggestions([]);
     }
@@ -36,17 +42,21 @@ const CitySearch = ({ getAirQuality }) => {
   };
 
   const handleSelectSuggestion = async (suggestion) => {
-    const cityNames = suggestion.matching_full_name;
-    const commonName = cityNames.split(",")[0];
-    setInputValue(commonName);
-    const formattedCity = commonName.trim().replace(/ /g, "-");
+    const cityName = suggestion;
+
+    setInputValue(cityName);
+
     try {
       setIsLoading(true);
-      await getAirQuality(formattedCity);
+
+      await getAirQuality(cityName);
+
       setSuggestions([]);
     } catch (error) {
+      throw Error(`an error encored ${error}`);
     } finally {
       setSuggestions([]);
+
       setIsLoading(false);
     }
   };
@@ -64,10 +74,10 @@ const CitySearch = ({ getAirQuality }) => {
         <ul className='font-bold bg-opacity-30 bg-gray-700 rounded-b-xl shadow-sm'>
           {suggestions.map((suggestion) => (
             <li
-              className='p-4 shadow-2xl hover:bg-gray-600 text-gray-300 hover:text-black transition duration-300 cursor-pointer '
-              key={suggestion.matching_full_name}
+              className='p-4 shadow-2xl hover:bg-gray-600 text-gray-300 hover:text-black transition duration-300 cursor-pointer'
+              key={suggestion}
               onClick={() => handleSelectSuggestion(suggestion)}>
-              {suggestion.matching_full_name}
+              {suggestion}
             </li>
           ))}
         </ul>
