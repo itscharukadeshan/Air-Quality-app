@@ -1,13 +1,21 @@
 /** @format */
-export const getCityNameByInput = async (value) => {
-  try {
-    const response = await fetch(
-      `https://api.teleport.org/api/cities/?search=${value}`
-    );
-    const data = await response.json();
-    return data._embedded["city:search-results"];
-  } catch (error) {
-    console.error(error);
+
+import cities from "cities-list";
+
+export const getCityNameByInput = (value) => {
+  if (value.length < 2) {
     return [];
   }
+
+  const citiesArray = Object.keys(cities);
+
+  const filteredCities = citiesArray.filter((city) => {
+    return city.toLowerCase().startsWith(value.toLowerCase());
+  });
+
+  return filteredCities.slice(0, 3).map((city) => {
+    return {
+      city,
+    };
+  });
 };
